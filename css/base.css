@@ -325,3 +325,67 @@ footer h4,
 footer h5 {
     color: var(--primary-bg); /* Cream */
 }
+/* ===============================
+   Accordion (Interactive Element)
+   =============================== */
+
+.tips {
+  padding: 0 var(--spacing-md) var(--spacing-2xl);
+}
+
+.tips-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tips-lead {
+  max-width: 720px;
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.accordion {
+  max-width: 760px;
+}
+
+.accordion-item {
+  border: 2px solid rgba(50, 74, 95, 0.12);
+  border-radius: 12px;
+  background: var(--secondary-bg);
+  overflow: hidden;
+}
+
+.accordion-item + .accordion-item {
+  margin-top: var(--spacing-sm);
+}
+
+/* IMPORTANT: higher specificity so it beats base button styles */
+.accordion .accordion-trigger {
+  width: 100%;
+  display: block;
+  text-align: left;
+
+  background: transparent !important;
+  border: 0;
+  border-radius: 0;
+
+  padding: var(--spacing-md);
+  cursor: pointer;
+
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-size-md);
+  color: var(--secondary-color);
+
+  outline: none;
+}
+
+.accordion .accordion-trigger:hover,
+.accordion .accordion-trigger:focus-visible {
+  background: rgba(90, 56, 37, 0.08) !important;
+}
+
+.accordion-panel {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  color: var(--primary-color);
+}
