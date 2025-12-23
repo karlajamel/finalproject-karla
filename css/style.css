@@ -4,5 +4,196 @@
 
 /* ====== Add your CSS here ======== */
 
+/*==== Navigation Bar Styles ====*/
+:root {
+  /* These change the easing of transitions, used on menu button */
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);/* ease in and out */
+  --ease-in: cubic-bezier(0.42, 0, 1, 1);/* ease in */
+  --ease-out: cubic-bezier(0, 0, 0.58, 1);/* ease out */
+  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1); /* ease in and out, more pronounced */
 
+  /* Nav tokens mapped to your cooking site system */
+  --clr-nav-background: var(--headerFooter-bg); /* Chocolate Brown */
+  --clr-nav: var(--headerFooter-color);         /* Cream */
+  --clr-nav-hover-bg: var(--link-color);        /* Tomato Red */
+  --clr-nav-hover: var(--button-text-color);    /* White */
+}
 
+/* Header as a vertical stack: topbar, then nav */
+header {
+  background: var(--clr-nav-background);
+  color: var(--clr-nav);
+}
+
+/* Top row: logo + hamburger aligned horizontally */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.logo {
+  color: var(--clr-nav);
+  text-decoration: none;
+
+  /* Typography for cooking site */
+  font-family: var(--font-heading); /* Merriweather */
+  font-weight: 700;
+  font-size: var(--text-size-xl);
+  line-height: 1.1;
+}
+
+/* Hamburger button */
+.menu-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--clr-nav);
+  border-radius: 1px;
+  /* This transition manages change from hamburger to X */
+  transition: 
+    transform 300ms var(--ease-standard),
+    opacity 200ms var(--ease-standard);
+  transform-origin: center;
+}
+
+/* Hamburger → X animation when expanded */
+.menu-button[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Nav (below topbar) */
+nav {
+  background: var(--clr-nav-background);
+}
+
+/* Collapsed menu by default */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  /* Smooth collapse/expand with gentle fade */
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 520ms var(--ease-in-out),
+    opacity 260ms var(--ease-in-out);
+}
+
+/* Expanded state (JS toggles .is-open on the UL) */
+.menu.is-open {
+  max-height: 80vh;
+  opacity: 1;
+}
+
+/* Vertical, full-width items */
+.menu li + li {
+  border-top: 2px solid rgba(247,241,229,0.45); /* Cream border */
+}
+
+.menu a {
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  color: var(--clr-nav);
+  text-decoration: none;
+
+  /* Typography for cooking site */
+  font-family: var(--font-primary); /* Lato */
+  font-weight: 700;
+  font-size: var(--text-size-md);
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background: var(--clr-nav-hover-bg);
+  color: var(--clr-nav-hover);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu { transition: none; }
+}
+
+/* Desktop: horizontal layout, inline logo & nav */
+@media (min-width: 1240px) {
+  /* Header becomes horizontal flex container */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Hide the topbar wrapper since header is now flex */
+  .topbar {
+    display: contents; /* children become direct flex items of header */
+  }
+
+  /* Hide hamburger button */
+  .menu-button {
+    display: none;
+  }
+
+  /* Nav aligns with header */
+  nav {
+    background: transparent;
+  }
+
+  /* Always show menu, horizontal layout */
+  .menu {
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+    transition: none;
+    
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  /* Remove vertical borders */
+  .menu li + li {
+    border-top: none;
+  }
+
+  /* Button-like nav items with centered text */
+  .menu a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-align: center;
+    transition: 
+      background 180ms var(--ease-standard),
+      color 180ms var(--ease-standard);
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible {
+    background: var(--clr-nav-hover-bg);
+    color: var(--clr-nav-hover);
+  }
+}
