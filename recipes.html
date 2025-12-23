@@ -1,58 +1,176 @@
+<!-- recipes.html (copy all) -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Basic responsive page starter with semantic HTML, modern CSS, and accessibility-friendly patterns.">
-    <title>Recipes</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse popular recipes from Big Sister Cooking.">
+  <title>Recipes | Big Sister Cooking</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-        <div class="topbar">
-            <!-- Make site title a link to the homepage -->
-            <a class="site-title logo" href="index.html">Big Sister Cooking</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-            <button type="button" class="menu-button" aria-controls="menu" aria-expanded="false" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+  <header class="site-header">
+    <div class="topbar">
+      <a class="site-title logo" href="index.html">Big Sister Cooking</a>
+
+      <button type="button" class="menu-button" aria-controls="menu" aria-expanded="false" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav aria-label="Primary">
+      <ul id="menu" class="menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="basics.html">Cooking Basics</a></li>
+        <li><a href="recipes.html" aria-current="page">Recipes</a></li>
+        <li><a href="videos.html">Videos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- INTRO / HERO -->
+    <section class="hero recipes-hero" aria-labelledby="recipes-title">
+      <div class="hero-inner">
+        <h1 id="recipes-title">Introduction</h1>
+        <p class="hero-lead">
+          Explore beginner-friendly recipes that feel like home. Pick a dish, follow the steps, and build confidence one meal at a time.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider" aria-hidden="true">
+
+    <!-- POPULAR RECIPES (headline + description aligned left, grid below) -->
+    <section class="recipes-section" aria-labelledby="popular-recipes-title">
+      <div class="recipes-section-inner">
+        <header class="recipes-section-header">
+          <h2 id="popular-recipes-title">Popular Recipes</h2>
+          <p class="recipes-section-lead">
+            A mix of comforting meals, quick plates, and sweet options—simple enough to start today.
+          </p>
+        </header>
+
+        <div class="card-grid recipes-grid">
+          <!-- 1 -->
+          <article class="recipe-card">
+            <div class="card-media">
+              <img
+                src="https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg"
+                alt="Cooked food served in a stainless steel plate"
+                class="card-image">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Hearty Plate</h3>
+              <p class="card-text">A warm, satisfying meal that’s easy to portion and serve.</p>
+              <a class="btn btn-secondary" href="videos.html">View</a>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="recipe-card">
+            <div class="card-media">
+              <img
+                src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg"
+                alt="Pastry and a boiled egg on a plate"
+                class="card-image">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Breakfast Plate</h3>
+              <p class="card-text">A simple breakfast combo to start your day with energy.</p>
+              <a class="btn btn-secondary" href="videos.html">View</a>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="recipe-card">
+            <div class="card-media">
+              <img
+                src="https://images.pexels.com/photos/803963/pexels-photo-803963.jpeg"
+                alt="Cooked pasta served in a wooden bowl"
+                class="card-image">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Comfort Pasta</h3>
+              <p class="card-text">A beginner-friendly pasta that tastes like a cozy dinner at home.</p>
+              <a class="btn btn-secondary" href="videos.html">View</a>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="recipe-card">
+            <div class="card-media">
+              <img
+                src="https://images.pexels.com/photos/750073/pexels-photo-750073.jpeg"
+                alt="Assorted cooked foods plated"
+                class="card-image">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Family Dinner</h3>
+              <p class="card-text">Classic flavors with simple steps—perfect for sharing.</p>
+              <a class="btn btn-secondary" href="videos.html">View</a>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article class="recipe-card">
+            <div class="card-media">
+              <img
+                src="https://images.pexels.com/photos/3147493/pexels-photo-3147493.jpeg"
+                alt="Sushi rolls on a plate"
+                class="card-image">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Sushi Rolls</h3>
+              <p class="card-text">A fun recipe to try when you want something new and impressive.</p>
+              <a class="btn btn-secondary" href="videos.html">View</a>
+            </div>
+          </article>
+
+          <!-- 6 -->
+          <article class="recipe-card">
+            <div class="card-media">
+              <img
+                src="https://images.pexels.com/photos/5645174/pexels-photo-5645174.jpeg"
+                alt="Red berries in a white ceramic bowl"
+                class="card-image">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Berry Bowl</h3>
+              <p class="card-text">Fresh, sweet, and simple—an easy option for snacks or dessert.</p>
+              <a class="btn btn-secondary" href="videos.html">View</a>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <nav aria-label="Primary">
-            <ul id="menu" class="menu">
-                <li><a href="about.html">About</a></li>
-                <li><a href="basics.html">Cooking Basics</a></li>
-                <li><a href="recipes.html" aria-current="page">Recipes</a></li>
-                <li><a href="videos.html">Videos</a></li>
-            </ul>
-        </nav>
-    </header>
+  </main>
 
-    <main id="main">
-        <!-- add main page content here -->
-        <p>This page is intentionally blank. See demo.html for an example.</p>
-    </main>
+  <footer class="site-footer">
+    <p>Big Sister Cooking © 2025. All rights reserved.</p>
+  </footer>
 
-    <footer class="site-footer">
-        <!-- add site-wide footer content here -->
-    </footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous" defer></script>
 
-    <!-- Leave this as the last thing before the closing /body tag -->
-    <!-- jQuery via CDN with modern dynamic fallback -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
-    <script>
-        if (!window.jQuery) {
-            const fallback = document.createElement('script');
-            fallback.src = 'js/vendor/jquery-3.7.1.min.js';
-            fallback.defer = true;
-            document.head.appendChild(fallback);
-        }
-    </script>
-    <script src="js/main.js" defer></script>
+  <script>
+    if (!window.jQuery) {
+      const fallback = document.createElement('script');
+      fallback.src = 'js/vendor/jquery-3.7.1.min.js';
+      fallback.defer = true;
+      document.head.appendChild(fallback);
+    }
+  </script>
+
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

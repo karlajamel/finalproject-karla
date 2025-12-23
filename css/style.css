@@ -1,16 +1,18 @@
-/* Base styles, including fonts, headings, links, buttons, etc. can be found in base.css */
+/* style.css
+   Keep base styles (fonts, type scale, colors, buttons, links, etc.) in base.css.
+   This file only contains layout + component styles used across pages, plus a few page-specific helpers.
+*/
 
-/* You can copy and paste that CSS into your main style.css or keep it as a separate file and link both in your HTML files. */
+/* ===============================
+   Navigation
+   =============================== */
 
-/* ====== Add your CSS here ======== */
-
-/*==== Navigation Bar Styles ====*/
 :root {
-  /* These change the easing of transitions, used on menu button */
-  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);/* ease in and out */
-  --ease-in: cubic-bezier(0.42, 0, 1, 1);/* ease in */
-  --ease-out: cubic-bezier(0, 0, 0.58, 1);/* ease out */
-  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1); /* ease in and out, more pronounced */
+  /* Easing for menu button animation */
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-in: cubic-bezier(0.42, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.58, 1);
+  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
 
   /* Nav tokens mapped to your cooking site system */
   --clr-nav-background: var(--headerFooter-bg); /* Chocolate Brown */
@@ -25,7 +27,6 @@ header {
   color: var(--clr-nav);
 }
 
-/* Top row: logo + hamburger aligned horizontally */
 .topbar {
   display: flex;
   align-items: center;
@@ -37,8 +38,6 @@ header {
 .logo {
   color: var(--clr-nav);
   text-decoration: none;
-
-  /* Typography for cooking site */
   font-family: var(--font-heading); /* Merriweather */
   font-weight: 700;
   font-size: var(--text-size-xl);
@@ -63,40 +62,33 @@ header {
   height: 2px;
   background: var(--clr-nav);
   border-radius: 1px;
-  /* This transition manages change from hamburger to X */
-  transition: 
+  transition:
     transform 300ms var(--ease-standard),
     opacity 200ms var(--ease-standard);
   transform-origin: center;
 }
 
-/* Hamburger → X animation when expanded */
 .menu-button[aria-expanded="true"] span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
-
 .menu-button[aria-expanded="true"] span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
-
 .menu-button[aria-expanded="true"] span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Nav (below topbar) */
 nav {
   background: var(--clr-nav-background);
 }
 
-/* Collapsed menu by default */
 .menu {
   list-style: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 
-  /* Smooth collapse/expand with gentle fade */
   max-height: 0;
   opacity: 0;
   transition:
@@ -104,15 +96,13 @@ nav {
     opacity 260ms var(--ease-in-out);
 }
 
-/* Expanded state (JS toggles .is-open on the UL) */
 .menu.is-open {
   max-height: 80vh;
   opacity: 1;
 }
 
-/* Vertical, full-width items */
 .menu li + li {
-  border-top: 2px solid rgba(247,241,229,0.45); /* Cream border */
+  border-top: 2px solid rgba(247, 241, 229, 0.45); /* Cream border */
 }
 
 .menu a {
@@ -121,8 +111,6 @@ nav {
   text-align: center;
   color: var(--clr-nav);
   text-decoration: none;
-
-  /* Typography for cooking site */
   font-family: var(--font-primary); /* Lato */
   font-weight: 700;
   font-size: var(--text-size-md);
@@ -139,9 +127,7 @@ nav {
   .menu { transition: none; }
 }
 
-/* Desktop: horizontal layout, inline logo & nav */
 @media (min-width: 1240px) {
-  /* Header becomes horizontal flex container */
   header {
     display: flex;
     align-items: center;
@@ -149,51 +135,371 @@ nav {
     padding: 1rem 1.5rem;
   }
 
-  /* Hide the topbar wrapper since header is now flex */
-  .topbar {
-    display: contents; /* children become direct flex items of header */
-  }
+  .topbar { display: contents; }
+  .menu-button { display: none; }
+  nav { background: transparent; }
 
-  /* Hide hamburger button */
-  .menu-button {
-    display: none;
-  }
-
-  /* Nav aligns with header */
-  nav {
-    background: transparent;
-  }
-
-  /* Always show menu, horizontal layout */
   .menu {
     max-height: none;
     opacity: 1;
     overflow: visible;
     transition: none;
-    
     display: flex;
     gap: 0.5rem;
   }
 
-  /* Remove vertical borders */
-  .menu li + li {
-    border-top: none;
-  }
+  .menu li + li { border-top: none; }
 
-  /* Button-like nav items with centered text */
   .menu a {
     display: inline-block;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
-    text-align: center;
-    transition: 
+    transition:
       background 180ms var(--ease-standard),
       color 180ms var(--ease-standard);
   }
+}
 
-  .menu a:hover,
-  .menu a:focus-visible {
-    background: var(--clr-nav-hover-bg);
-    color: var(--clr-nav-hover);
+/* ===============================
+   Shared layout blocks
+   =============================== */
+
+.hero {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-lead {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--primary-color);
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: rgba(90, 56, 37, 0.15);
+  margin: 0 var(--spacing-md) var(--spacing-2xl);
+}
+
+.eyebrow {
+  margin: 0 0 var(--spacing-sm);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+/* Cards + grid used on Home, Basics, Recipes */
+.section-title {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.card-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+.recipe-card {
+  background: var(--secondary-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(50, 74, 95, 0.1);
+  text-align: left;
+
+  /* button alignment for different text lengths */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-media {
+  padding: var(--spacing-md);
+}
+
+.card-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card-body {
+  padding: var(--spacing-md);
+
+  /* button alignment for different text lengths */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-text {
+  margin-bottom: var(--spacing-md);
+}
+
+/* push any .btn in card bodies to bottom-left */
+.card-body .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Secondary button variant */
+.btn.btn-secondary {
+  background: var(--secondary-link-color);
+  color: #ffffff;
+}
+.btn.btn-secondary:hover,
+.btn.btn-secondary:focus {
+  background: var(--secondary-link-hover-color);
+  outline-color: var(--secondary-link-hover-color);
+}
+
+.site-footer {
+  background: var(--headerFooter-bg);
+  color: var(--headerFooter-color);
+  text-align: center;
+  padding: var(--spacing-md);
+  font-size: var(--text-size-sm);
+}
+
+/* Shared responsive grid behavior */
+@media (min-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* ===============================
+   Home page
+   =============================== */
+
+.featured {
+  padding: 0 var(--spacing-md) var(--spacing-2xl);
+}
+
+.featured-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.featured-copy {
+  max-width: 480px;
+}
+
+.featured-image {
+  width: 100%;
+  max-width: 560px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.popular {
+  padding: 0 var(--spacing-md) var(--spacing-2xl);
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .featured-inner {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+/* ===============================
+   About page
+   =============================== */
+
+.about-content {
+  padding: 0 var(--spacing-md) var(--spacing-2xl);
+}
+
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 420px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.about-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+@media (min-width: 900px) {
+  .about-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===============================
+   Basics page
+   =============================== */
+
+.basics-hero {
+  padding-bottom: var(--spacing-xl);
+}
+
+.beginner {
+  padding: 0 var(--spacing-md) var(--spacing-2xl);
+}
+
+.beginner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.beginner-photo {
+  width: 100%;
+  max-width: 520px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.beginner-actions {
+  margin-top: var(--spacing-md);
+}
+
+@media (min-width: 900px) {
+  .beginner-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===============================
+   Recipes page
+   =============================== */
+
+.recipes-hero {
+  padding-bottom: var(--spacing-xl);
+}
+
+.recipes-section {
+  padding: 0 var(--spacing-md) var(--spacing-2xl);
+}
+
+.recipes-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.recipes-section-header {
+  text-align: left;
+  max-width: 720px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.recipes-section-lead {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.recipes-grid {
+  text-align: left;
+}
+/* FIX: Recipes page header block looking wrong */
+.recipes-section-header {
+  background: transparent;               /* prevents brown block */
+  padding: 0;                            /* avoid big box look */
+}
+
+/* Make sure the Popular Recipes heading is readable */
+.recipes-section-header h2 {
+  color: var(--secondary-color);         /* chocolate brown (on cream bg) */
+}
+
+/* Keep the description readable */
+.recipes-section-lead {
+  color: var(--primary-color);
+}
+.recipes-section {
+  text-align: center;
+}
+/* Fix Popular Recipes layout: stack title + text vertically */
+.recipes-section-header {
+  display: block;              /* override any grid/flex */
+  text-align: left;
+  max-width: 720px;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Ensure description sits below heading */
+.recipes-section-header h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.recipes-section-lead {
+  margin-top: 0;
+}
+
+/* Add to the bottom of style.css (Videos page layout only) */
+
+/* Constrain videos page content to match other pages */
+.videos-featured {
+  padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-2xl);
+}
+
+.videos-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.videos-inner h1 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  text-align: left; /* matches mock */
+}
+
+/* Space between video and description */
+.videos-description {
+  max-width: 760px;
+  margin-top: var(--spacing-md);
+}
+
+/* More Videos section centered title like mock */
+.videos-more .section-title {
+  text-align: center;
+}
+
+/* Make the embedded iframes inside cards match the card radius */
+.recipe-card .videoWrapper iframe {
+  border-radius: 12px;
 }

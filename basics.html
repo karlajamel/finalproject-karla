@@ -1,58 +1,148 @@
+<!-- basics.html (copy all) -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Basic responsive page starter with semantic HTML, modern CSS, and accessibility-friendly patterns.">
-    <title>Cooking Basics</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cooking basics for beginners: tools, tips, and a starter recipe.">
+  <title>Cooking Basics | Big Sister Cooking</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-        <div class="topbar">
-            <!-- Make site title a link to the homepage -->
-            <a class="site-title logo" href="index.html">Big Sister Cooking</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-            <button type="button" class="menu-button" aria-controls="menu" aria-expanded="false" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+  <header class="site-header">
+    <div class="topbar">
+      <a class="site-title logo" href="index.html">Big Sister Cooking</a>
+
+      <button type="button" class="menu-button" aria-controls="menu" aria-expanded="false" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav aria-label="Primary">
+      <ul id="menu" class="menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="basics.html" aria-current="page">Cooking Basics</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="videos.html">Videos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- INTRO / HERO -->
+    <section class="hero basics-hero" aria-labelledby="basics-title">
+      <div class="hero-inner">
+        <p class="eyebrow">Basics • Tools • Confidence</p>
+        <h1 id="basics-title">Introduction</h1>
+        <p class="hero-lead">
+          Cooking doesn’t have to be intimidating. Start with simple tools, learn a few basics, and you’ll be making
+          delicious meals with confidence—like your big sister guiding you step by step.
+        </p>
+      </div>
+    </section>
+
+    <!-- COOKING TOOLS -->
+    <section class="popular tools" aria-labelledby="tools-title">
+      <h2 id="tools-title" class="section-title">Cooking Tools</h2>
+
+      <div class="card-grid">
+
+        <article class="recipe-card tool-card">
+          <div class="card-media">
+            <img src="https://images.pexels.com/photos/971076/pexels-photo-971076.jpeg"
+              alt="Assorted spices on wooden spoons" class="card-image">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Seasoning Basics</h3>
+            <p class="card-text">
+              Salt, pepper, garlic, and a few spices can transform any meal. Start small and taste as you go.
+            </p>
+            <a class="btn btn-secondary" href="recipes.html">View</a>
+          </div>
+        </article>
+
+        <article class="recipe-card tool-card">
+          <div class="card-media">
+            <img src="https://images.pexels.com/photos/6996085/pexels-photo-6996085.jpeg"
+              alt="Plates, utensils, and spices on a wooden surface" class="card-image">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Kitchen Essentials</h3>
+            <p class="card-text">
+              A cutting board, sharp knife, pan, and measuring tools are the foundation for beginner-friendly cooking.
+            </p>
+            <a class="btn btn-secondary" href="recipes.html">View</a>
+          </div>
+        </article>
+
+        <article class="recipe-card tool-card">
+          <div class="card-media">
+            <img src="https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg"
+              alt="Steak dish served on a plate" class="card-image">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Cooking Temperatures</h3>
+            <p class="card-text">
+              Learning heat levels (low, medium, high) helps you avoid burning food and cook evenly.
+            </p>
+            <a class="btn btn-secondary" href="recipes.html">View</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BEGINNER RECIPE -->
+    <section class="beginner" aria-labelledby="beginner-title">
+      <div class="beginner-inner">
+
+        <div class="beginner-copy">
+          <h2 id="beginner-title">Beginner Recipe</h2>
+          <p>
+            Start with something simple, comforting, and easy to repeat. This is the kind of meal you can make again and
+            again while you build confidence in the kitchen.
+          </p>
+
+          <div class="about-actions beginner-actions">
+            <a href="recipes.html" class="btn">Read</a>
+            <a href="videos.html" class="btn btn-secondary">Watch</a>
+          </div>
         </div>
 
-        <nav aria-label="Primary">
-            <ul id="menu" class="menu">
-                <li><a href="about.html">About</a></li>
-                <li><a href="basics.html" aria-current="page">Cooking Basics</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="videos.html">Videos</a></li>
-            </ul>
-        </nav>
-    </header>
+        <div class="beginner-media">
+          <img src="https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg"
+            alt="Rice with vegetables, soft boiled egg, and parsley on a green plate" class="beginner-photo">
+        </div>
 
-    <main id="main">
-        <!-- add main page content here -->
-        <p>This page is intentionally blank. See demo.html for an example.</p>
-    </main>
+      </div>
+    </section>
 
-    <footer class="site-footer">
-        <!-- add site-wide footer content here -->
-    </footer>
+  </main>
 
-    <!-- Leave this as the last thing before the closing /body tag -->
-    <!-- jQuery via CDN with modern dynamic fallback -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
-    <script>
-        if (!window.jQuery) {
-            const fallback = document.createElement('script');
-            fallback.src = 'js/vendor/jquery-3.7.1.min.js';
-            fallback.defer = true;
-            document.head.appendChild(fallback);
-        }
-    </script>
-    <script src="js/main.js" defer></script>
+  <footer class="site-footer">
+    <p>Big Sister Cooking © 2025. All rights reserved by Karla Peguero.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous" defer></script>
+
+  <script>
+    if (!window.jQuery) {
+      const fallback = document.createElement('script');
+      fallback.src = 'js/vendor/jquery-3.7.1.min.js';
+      fallback.defer = true;
+      document.head.appendChild(fallback);
+    }
+  </script>
+
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

@@ -4,17 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Basic responsive page starter with semantic HTML, modern CSS, and accessibility-friendly patterns.">
-    <title>About</title>
+    <meta name="description" content="Learn more about Big Sister Cooking and how to get in touch.">
+    <title>About | Big Sister Cooking</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
+
     <header class="site-header">
         <div class="topbar">
-            <!-- Make site title a link to the homepage -->
             <a class="site-title logo" href="index.html">Big Sister Cooking</a>
 
             <button type="button" class="menu-button" aria-controls="menu" aria-expanded="false" aria-label="Menu">
@@ -33,17 +33,59 @@
     </header>
 
     <main id="main">
-        <!-- add main page content here -->
-        <p>This page is intentionally blank. See demo.html for an example.</p>
+
+        <!-- ABOUT HERO -->
+        <section class="hero" aria-labelledby="about-title">
+            <div class="hero-inner">
+                <h1 id="about-title">Who We Are</h1>
+                <p class="hero-lead">
+                    Big Sister Cooking was created to feel like being in the kitchen with someone who cares about you — a big sister who's patient, encouraging, and always willing to help. Cooking can feel overwhelming at first, especially when you're young or just starting out, and this site exists to make that process feel warm, safe, and enjoyable. Here, recipes are shared with love, guidance, and the belief that anyone can learn to cook something great. If there's a meal that means something to you or a dish you've always wanted to learn, we'd be more than happy to teach you how to make it, step by step, until it feels like your own.
+                </p>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <!-- CONTACT / INFO SECTION -->
+        <section class="about-content" aria-labelledby="contact-title">
+            <div class="about-inner">
+
+                <!-- Text Content -->
+                <div class="about-text">
+                    <h2 id="contact-title">Contact Us</h2>
+                    <p>
+                        Whether you're just starting out or looking to improve your skills, Big Sister Cooking
+                        is here to help. Reach out with questions, feedback, or recipe requests.
+                    </p>
+
+                    <div class="about-actions">
+                        <a href="#" class="btn">Email</a>
+                        <a href="#" class="btn btn-secondary">Text</a>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="about-image">
+                    <img 
+                        src="https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg" 
+                        alt="Person pouring salt into a bowl while cooking" 
+                        class="about-photo">
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <!-- add site-wide footer content here -->
+        <p>Big Sister Cooking © 2025. All rights reserved by Karla Peguero.</p>
     </footer>
 
-    <!-- Leave this as the last thing before the closing /body tag -->
-    <!-- jQuery via CDN with modern dynamic fallback -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+    <!-- jQuery via CDN with fallback -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous" defer></script>
+
     <script>
         if (!window.jQuery) {
             const fallback = document.createElement('script');
@@ -52,6 +94,7 @@
             document.head.appendChild(fallback);
         }
     </script>
+
     <script src="js/main.js" defer></script>
 </body>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Basic responsive page starter with semantic HTML, modern CSS, and accessibility-friendly patterns.">
+    <meta name="description" content="Easy, tasteful, and traditional recipes made simple. Big Sister Cooking.">
     <title>Home | Big Sister Cooking</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/style.css">
@@ -15,7 +15,7 @@
 
     <header class="site-header">
         <div class="topbar">
-            <!-- Site title now links to homepage -->
+            <!-- Logo / Site Title -->
             <a class="site-title logo" href="index.html" aria-current="page">
                 Big Sister Cooking
             </a>
@@ -36,19 +36,102 @@
     </header>
 
     <main id="main">
-        <!-- add main page content here -->
-        <p>This page is intentionally blank. See demo.html for an example.</p>
+
+        <!-- HERO / WELCOME -->
+        <section class="hero" aria-labelledby="welcome-title">
+            <div class="hero-inner">
+                <h1 id="welcome-title">Welcome</h1>
+                <p class="hero-lead">
+                    Easy, tasteful, and traditional recipes made simple. Learn how to cook with confidence, one step at
+                    a time.
+                </p>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <!-- FEATURED RECIPE -->
+        <section class="featured" aria-labelledby="featured-title">
+            <div class="featured-inner">
+
+                <div class="featured-copy">
+                    <p class="eyebrow">Featured</p>
+                    <h2 id="featured-title">Recipe of the Month</h2>
+                    <p>
+                        A sweet and comforting dessert that's perfect for beginners and special occasions alike.
+                    </p>
+                    <a class="btn" href="recipes.html">Explore</a>
+                </div>
+
+                <div class="featured-media">
+                    <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg"
+                        alt="Top view of a dessert dish" class="featured-image">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- POPULAR RECIPES -->
+        <section class="popular" aria-labelledby="popular-title">
+            <h2 id="popular-title" class="section-title">Popular Recipes</h2>
+
+            <div class="card-grid">
+
+                <article class="recipe-card">
+                    <div class="card-media">
+                        <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg"
+                            alt="Burger and fries on a plate" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Classic Burger</h3>
+                        <p class="card-text">
+                            A simple, juicy burger with crispy fries — perfect for lunch or dinner.
+                        </p>
+                        <a class="btn btn-secondary" href="recipes.html">View</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <div class="card-media">
+                        <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg"
+                            alt="Pancakes topped with sliced strawberries" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Strawberry Pancakes</h3>
+                        <p class="card-text">
+                            Fluffy pancakes topped with fresh strawberries — perfect for breakfast or brunch.
+                        </p>
+                        <a class="btn btn-secondary" href="recipes.html">View</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <div class="card-media">
+                        <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg"
+                            alt="Cooked seafood platter" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Seafood Platter</h3>
+                        <p class="card-text">
+                            A flavorful seafood dish that's easy to prepare and perfect for dinner.
+                        </p>
+                        <a class="btn btn-secondary" href="recipes.html">View</a>
+                    </div>
+                </article>
+
+
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <!-- add site-wide footer content here -->
+        <p>Big Sister Cooking © 2025. All rights reserved by Karla Peguero.</p>
     </footer>
 
-    <!-- Leave this as the last thing before the closing /body tag -->
-    <!-- jQuery via CDN with modern dynamic fallback -->
+    <!-- jQuery via CDN with fallback -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous" defer></script>
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
 
     <script>
         if (!window.jQuery) {
